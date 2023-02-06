@@ -8,11 +8,11 @@ import pyperclip
 openai.api_key = os.environ.get("OPENAI_API_KEY")
 model_engine = "text-davinci-003"
 
-st.title('Fake JSON Generator')
+st.title('Fake JSON Data Generator')
 
 col1, col2 = st.columns(2)
 with col1:
-    st.header('Enter your JSON here')
+    st.header('Enter your JSON schema here')
     text_input = st.text_area('Enter your JSON here', height=500)
 
 prompt = "Generate sample JSON object list for the following interface. Please give me a valid json that is validated" + text_input
@@ -24,7 +24,7 @@ max_tokens = 350
 # Dont run completion if text_input is empty
 counter = 0
 with col2:
-    st.header('Generated JSON')
+    st.header('Generated JSON Data')
     if text_input and x != 1:
         completion = openai.Completion.create(
             engine=model_engine,
