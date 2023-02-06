@@ -22,7 +22,7 @@ max_tokens = 350
 
 # Generate a response
 # Dont run completion if text_input is empty
-x = 0
+counter = 0
 with col2:
     st.header('Generated JSON')
     if text_input and x != 1:
@@ -43,4 +43,4 @@ with col2:
             if st.button('Copy to clipboard'):
                 pyperclip.copy(completion.choices[0].text[2:])
                 st.write('Copied to clipboard!')
-        x += 1
+        counter += 1
