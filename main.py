@@ -6,6 +6,7 @@ import openai
 import pyperclip
 
 openai.api_key = os.environ.get("OPENAI_API_KEY")
+
 model_engine = "text-davinci-003"
 
 st.title('Fake JSON Data Generator')
@@ -25,7 +26,7 @@ max_tokens = 350
 counter = 0
 with col2:
     st.header('Generated JSON Data')
-    if text_input and x != 1:
+    if text_input and counter != 1:
         completion = openai.Completion.create(
             engine=model_engine,
             prompt=prompt,
